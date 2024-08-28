@@ -1,5 +1,5 @@
-import com.example.Cat;
-import com.example.Feline;
+package com.example;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -15,11 +15,10 @@ public class CatTest {
     @Mock
     Feline feline;
 
-    Cat catMock = new Cat(feline);
-
+    Cat catNotMock = new Cat(feline);
     @Test
     public void getSoundTest() {
-        assertEquals("Мяу", catMock.getSound());
+        assertEquals("Мяу", catNotMock.getSound());
     }
 
     @Test
@@ -27,5 +26,4 @@ public class CatTest {
         Feline feline = new Feline();
         assertArrayEquals(List.of("Животные", "Птицы", "Рыба").toArray(), (new Cat(feline)).getFood().toArray());
     }
-
 }

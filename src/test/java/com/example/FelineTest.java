@@ -1,4 +1,5 @@
-import com.example.Feline;
+package com.example;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -20,23 +21,21 @@ public class FelineTest {
         List<String> actual = felineSpy.eatMeat();
         assertEquals(expected, actual);
     }
-
     @Test(expected = Exception.class)
     public void eatMeatExceptionTest() throws Exception {
-        List<String> actual = felineSpy.getFood("Трава");
+//        List<String> expected = List.of("sadasdasdsd");
+        List<String> actual = felineSpy.getFood("jjj");
     }
-
     @Test
     public void getFamilyTest() {
         assertEquals("Кошачьи", felineSpy.getFamily());
     }
-
+    // Feline felineSpy = Mockito.spy(feline);   !!!!! if we need to use by method
     @Test
     public void getKittensTestWithoutParams() {
         felineSpy.getKittens();
         Mockito.verify(felineSpy, Mockito.times(1)).getKittens(1);
     }
-
     @Test
     public void getKittensTestWithParams() {
         assertEquals(9,felineSpy.getKittens(9));
